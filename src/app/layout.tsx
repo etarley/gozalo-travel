@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Lato, Oswald, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const lato = Lato({
+  subsets:['latin'],
+  weight:['100', '300', '400', '700', '900'],
+  variable: '--font-lato'
+});
+
+const oswald = Oswald({ subsets: ["latin"], variable: "--font-oswald" });
+const playfairDisplay = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair-display" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +22,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={`${lato.variable} ${oswald.variable} ${playfairDisplay.variable}`}>
+      <body >{children}</body>
     </html>
   );
 }
